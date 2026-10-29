@@ -1,0 +1,343 @@
+{
+  "info": {
+    "_postman_id": "05bac88c-ac0a-4490-9ebf-3c6ff448dd7f",
+    "name": "GoRestCRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54259493",
+    "_collection_link": "https://go.postman.co/collection/54259493-05bac88c-ac0a-4490-9ebf-3c6ff448dd7f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "https://gorest.co.in/public/v2/users",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}users",
+          "host": [
+            "{{base_url}}users"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET 'https://gorest.co.in/public/v2/users' \\\n  -H 'Accept: application/json'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/users",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Jorge Martinez\", \"email\": \"jms123456789@gmail.com\", \"gender\": \"male\", \"status\": \"unactive\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}users",
+          "host": [
+            "{{base_url}}users"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST 'https://gorest.co.in/public/v2/users' \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{ \"name\": \"Tenali Ramakrishna\", \"email\": \"tenali@example.com\", \"gender\": \"male\", \"status\": \"active\" }'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/users/1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}users/{{userId}}",
+          "host": [
+            "{{base_url}}users"
+          ],
+          "path": [
+            "{{userId}}"
+          ]
+        },
+        "description": "Generated from cURL: curl -X DELETE 'https://gorest.co.in/public/v2/users/1' \\\n  -H 'Accept: application/json'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/users/1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Updated Name\", \"status\": \"inactive\" }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}users/{{userId}}",
+          "host": [
+            "{{base_url}}users"
+          ],
+          "path": [
+            "{{userId}}"
+          ]
+        },
+        "description": "Generated from cURL: curl -X PUT 'https://gorest.co.in/public/v2/users/1' \\\n  -H 'Accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{ \"name\": \"Updated Name\", \"status\": \"inactive\" }'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/users/1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}users/{{userId}}",
+          "host": [
+            "{{base_url}}users"
+          ],
+          "path": [
+            "{{userId}}"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET 'https://gorest.co.in/public/v2/users/1' \\\n  -H 'Accept: application/json'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}posts",
+          "host": [
+            "{{base_url}}posts"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET 'https://gorest.co.in/public/v2/posts' \\\n  -H 'Accept: application/json'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/todos",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}todos",
+          "host": [
+            "{{base_url}}todos"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET 'https://gorest.co.in/public/v2/todos' \\\n  -H 'Accept: application/json'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://gorest.co.in/public/v2/users.xml",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}users.xml",
+          "host": [
+            "{{base_url}}users",
+            "xml"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET 'https://gorest.co.in/public/v2/users.xml' \\\n  -H 'Accept: application/json'"
+      },
+      "response": []
+    }
+  ]
+}
